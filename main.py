@@ -1,14 +1,9 @@
-# Lists of items and categories for slicing
-items = "Bubblegum, Chocolate, Pasta"
-categories = "Candy Aisle, Pasta Aisle"
-candy1 = items[0:9]
-candy2 = items[11:20]
-dry_goods = items[22:28]
-category1 = categories[0:11]
-category2 = categories[13:24]
-bubblegum_price = "$1.50"
-chocolate_price = "$2.00"
-pasta_price = "$5.40"
-print(f"We have {candy1} for {bubblegum_price} in the {category1}")
-print(f"We have {candy2} for {chocolate_price} in the {category1}")
-print(f"We have {dry_goods} for {pasta_price} in the {category2}")
+seasonal = True
+on_sale = False
+selling_well = False
+current_stock = 150
+high_stock_threshold = 100
+overstock_risk = seasonal and current_stock > high_stock_threshold
+discount_eligible = not selling_well and not on_sale
+make_discount = overstock_risk or discount_eligible
+print("Should the item be discounted?", make_discount)
