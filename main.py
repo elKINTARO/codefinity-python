@@ -1,13 +1,16 @@
-# Input variables
-days_until_expiration = 5  # Example value
-stock_level = 60  # Example value
-product_type = "Perishable"  # Can be "Perishable" or "Non-Perishable"
-if product_type == "Perishable":
-    if days_until_expiration <= 3 and stock_level >= 50:
-        print("30% discount applied")
-    elif 4<days_until_expiration<6 and stock_level >= 50:
-        print("20% discount applied")
-    elif days_until_expiration > 6 or stock_level <= 50:
-        print("10% discount applied")
-else:
-    print("No discount available for non-perishable items.")
+meat = ["Ham", 3.99, 50, "Sliced"]
+cheese = ["Cheddar", 5.49, 100, "Sharp"]
+condiment = ["Mustard", 1.99, 75, "Spicy"]
+
+deli_dept = [meat, cheese, condiment]
+print("Initial Deli List:", deli_dept)
+
+if "Ham" in meat and meat[2] < 100:
+    meat[2] = 100
+
+seasonal = ["Turkey", 4.50, 100, "Sliced"]
+deli_dept.append(seasonal)
+deli_dept.remove(condiment)
+deli_dept.sort()
+
+print("Updated Deli List:", deli_dept)
