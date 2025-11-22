@@ -1,20 +1,33 @@
-# Current inventory on shelf
-shelf = ("apples", "oranges", "bananas", "apples", "grapes", "bananas", "apples")
-apple_count = shelf.count("apples")
-print("Number of Apples:", apple_count)
-banana_index = shelf.index("bananas")
-print("First Banana Index:", banana_index)
-if apple_count < 5:
-    print("Apples need to be restocked.")
-else:
-    print("Apples are sufficiently stocked.")
-grapes_count = shelf.count("grapes")
-if grapes_count == 1:
-    print("Grapes need to be restocked.")
-else:
-    print("Grapes are sufficiently stocked.")
+grocery_inventory = {
+    "Milk": ["Dairy", 3.50, 8],
+    "Eggs": ["Dairy", 5.50, 30],
+    "Bread": ["Bakery", 2.99, 15],
+    "Apples": ["Produce", 1.50, 50]
+}
 
-if "oranges" in shelf:
-    print("Oranges are at index:", shelf.index("oranges"))
+eggs_money = grocery_inventory["Eggs"][1]
+if eggs_money > 5:
+    print("Eggs are too expensive, reducing the price by $1.")
+    grocery_inventory["Eggs"][1] -= 1
 else:
-   print("Oranges are out of stock.") 
+    print("The price of Eggs is reasonable.")
+
+grocery_inventory["Tomatoes"] = ("Produce", 1.20, 30)
+print("Inventory after adding Tomatoes:", grocery_inventory)
+
+milk_count = grocery_inventory["Milk"][2]
+if milk_count < 10:
+    print("Milk needs to be restocked. Increasing stock by 20 units.")
+    grocery_inventory["Milk"][2] += 20
+else:
+    print("Milk has sufficient stock.")
+
+apple_money = grocery_inventory["Apples"][1]
+
+if apple_money > 2:
+    grocery_inventory.pop("Apples")
+    print("Apples removed from inventory due to high price.")
+
+print("Updated inventory:", grocery_inventory)
+
+    
